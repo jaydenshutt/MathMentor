@@ -4,6 +4,8 @@
 
 **Created by [Jayden Shutt](https://www.linkedin.com/in/jaydenshutt/)**
 
+![MathMentor dashboard](docs/mathmentor.png)
+
 ---
 
 ## Download (Windows)
