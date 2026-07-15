@@ -1,6 +1,8 @@
 # MathMentor
 
-**MathMentor** is a free, offline Windows desktop app that teaches mathematics from absolute basics through single-variable calculus. It is designed so a motivated learner can study independently: clear explanations, worked examples, practice with feedback, and free navigation to any topic at any time.
+**A free, offline math tutor for Windows** — from absolute basics through single-variable calculus.
+
+No account. No subscription. No ads. Progress stays on your PC. Jump to any topic whenever you want.
 
 **Created by [Jayden Shutt](https://www.linkedin.com/in/jaydenshutt/)**
 
@@ -10,35 +12,65 @@
 
 ## Download (Windows)
 
-### Direct download
+**[Download MathMentor.exe](https://github.com/jaydenshutt/MathMentor/releases/download/v1.0.1/MathMentor.exe)**  
+(~63 MB · current release: **v1.0.1** · [all releases](https://github.com/jaydenshutt/MathMentor/releases/latest))
 
-**[Download MathMentor.exe](https://github.com/jaydenshutt/MathMentor/releases/download/v1.0.1/MathMentor.exe)**
+| | |
+|---|---|
+| **OS** | Windows 10 or 11, **64-bit** |
+| **.NET install** | **Not required** (self-contained) |
+| **Internet** | Not needed after download |
+| **Installer** | None — run the single `.exe` |
 
-(That link is the current **v1.0.1** build, about 63 MB. Includes the practice-quiz crash fix from [#1](https://github.com/jaydenshutt/MathMentor/issues/1).)
+### Start in under a minute
 
-You can also open the **[Releases page](https://github.com/jaydenshutt/MathMentor/releases/latest)** for release notes and future versions.
+1. Download `MathMentor.exe` and run it.
+2. If **Windows SmartScreen** appears: **More info** → **Run anyway** (unsigned personal builds often trigger this; the app does not need admin rights for normal use).
+3. Open a lesson from the dashboard or **Curriculum**, read the explanation, then try **Practice**.
 
-| Requirement | Detail |
-|-------------|--------|
-| OS | Windows 10 or 11, **64-bit** |
-| .NET install | **Not required** (self-contained build) |
-| Internet | Not required to use the app after download |
-| Installer | None. Run the single `.exe` |
+First launch can take a few seconds while the app unpacks.
 
-First launch may take a few seconds while the app unpacks. If Windows SmartScreen appears, choose **More info** then **Run anyway** (unsigned personal builds often trigger this).
+---
+
+## Why MathMentor
+
+Most online tutors want a login, a connection, and sometimes a subscription. MathMentor is built for the opposite:
+
+| | MathMentor |
+|---|---|
+| **Price** | Free |
+| **Account** | None |
+| **Ads / paywall** | None |
+| **Internet** | Optional after download |
+| **Progress** | Local only (on your PC) |
+| **Path** | Structured lessons, not random videos |
+| **Pace** | Learn any topic in any order |
+
+Use it on a shared family PC, offline on a laptop, or anywhere you do not want another web account.
+
+---
+
+## Who it is for
+
+- **Students** catching up on foundations, or preparing for algebra, precalc, or calculus  
+- **Adults** relearning math for school, work, or confidence — without a classroom  
+- **Parents** who want a calm, structured tool to put in front of a learner  
+- Anyone who wants a clear path from “what is place value?” to “what is a derivative?” without a subscription  
+
+It does **not** replace a great teacher. It **does** give a patient, always-available practice path.
 
 ---
 
 ## What you get
 
-### Curriculum scale
+### Scale
 
 - **About 82 focused lessons**
-- **18 progressive categories**, from arithmetic through calculus
-- Jump to **any lesson anytime** for learning or review (no forced gates)
-- Local progress tracking (best quiz scores, attempts, review suggestions)
+- **18 progressive categories** (arithmetic → calculus)
+- **No forced gates** — open any lesson anytime for learning or review
+- **Local progress** — best quiz scores, attempts, and a needs-review queue
 
-### Categories include
+### Categories
 
 1. **Arithmetic Foundations** — place value, the four operations, order of operations  
 2. **Number Foundations** — integers, absolute value, factors/GCF/LCM, rational vs irrational  
@@ -62,51 +94,73 @@ First launch may take a few seconds while the app unpacks. If Windows SmartScree
 ### Inside a typical lesson
 
 - Progressive **explanations** (why, not only how)  
-- **Key formulas** rendered with high-quality math typesetting  
-- **Worked examples** with step-by-step tutor-style reasoning  
-- **Common mistakes**  
-- **Key takeaways**  
-- **Practice set** (multiple choice and numeric entry) with hints and full solutions  
-- Retake quizzes anytime; **best score** is saved  
+- **Key formulas** with high-quality math typesetting  
+- **Worked examples** with tutor-style steps  
+- **Common mistakes** and **key takeaways**  
+- **Practice** (multiple choice + numeric) with hints and full solutions  
+- Retakes anytime; **best score** is kept  
+
+Mastery stars: **70%** = 1★ · **85%** = 2★ · **95%** = 3★  
 
 ### App experience
 
-- Clean dark theme (with light theme option)  
-- Dashboard with mastery overview, continue learning, and weak areas  
+- Dark theme (light theme option) and adjustable font size  
+- Dashboard: continue learning, lessons started, mastery overview  
 - Searchable curriculum browser  
-- Needs-review queue (spaced-review style suggestions)  
-- Settings: theme, font scale, export/import/reset progress  
-- Works fully **offline** after download  
-
----
-
-## Who it is for
-
-- Students rebuilding foundations or preparing for algebra, precalc, or calculus  
-- Adult learners studying independently  
-- Anyone who wants a structured path without a web login or subscription  
+- Needs-review queue for weaker or older topics  
+- Export / import / reset progress in Settings  
 
 ---
 
 ## Privacy
 
-Progress is stored **only on your PC** (under your user AppData folder). There is no account system and no cloud upload built into the app.
+- **No account system**  
+- **No cloud upload** built into the app  
+- Progress and settings live under your Windows AppData folder only  
+
+---
+
+## Share
+
+If this might help a student, parent, or adult learner you know, feel free to send them this page:
+
+> Free offline math tutor for Windows (basics through calculus). No account, no subscription.  
+> https://github.com/jaydenshutt/MathMentor
 
 ---
 
 ## Optional gratitude
 
-MathMentor is free. If it has been helpful to you or someone you care about, a small gift via PayPal is a thoughtful way to say thank you. It is never required. Details are on the in-app **About** page.
+MathMentor is free. If it has been helpful, a small gift via PayPal is a thoughtful thank-you — never required. Details are on the in-app **About** page (including a QR code).
 
 ---
 
 ## Connect
 
-Created by **Jayden Shutt**  
-LinkedIn: [linkedin.com/in/jaydenshutt](https://www.linkedin.com/in/jaydenshutt/)
+**Jayden Shutt** · [linkedin.com/in/jaydenshutt](https://www.linkedin.com/in/jaydenshutt/)
+
+Questions, bugs, or ideas: [open an issue](https://github.com/jaydenshutt/MathMentor/issues).
+
+---
+
+## For developers
+
+Source code is in this repository. The ready-to-run Windows EXE is published on the [Releases](https://github.com/jaydenshutt/MathMentor/releases) page (not stored in git history).
+
+```powershell
+dotnet restore
+dotnet build
+dotnet run --project MathMentor
+```
+
+Publish a single-file EXE:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\publish.ps1
+```
 
 ---
 
 ## License / use
 
-You may download and use MathMentor.exe freely for personal learning. Redistribution of the binary is fine when the creator credit is preserved. Application source is in this repository; the ready-to-run Windows EXE is on the Releases page (not stored in git history).
+You may download and use MathMentor.exe freely for personal learning. Redistribution of the binary is fine when creator credit is preserved.
