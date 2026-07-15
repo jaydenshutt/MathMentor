@@ -1,0 +1,5 @@
+﻿# This repository is for public downloads only (no application source).
+# Binaries ship via GitHub Releases, not git commits.
+*
+!README.md
+!.gitignore
