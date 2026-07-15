@@ -12,9 +12,9 @@
 
 ### Direct download
 
-**[Download MathMentor.exe](https://github.com/jaydenshutt/MathMentor/releases/download/v1.0.0/MathMentor.exe)**
+**[Download MathMentor.exe](https://github.com/jaydenshutt/MathMentor/releases/download/v1.0.1/MathMentor.exe)**
 
-(That link is the current v1.0.0 build, about 63 MB.)
+(That link is the current **v1.0.1** build, about 63 MB. Includes the practice-quiz crash fix from [#1](https://github.com/jaydenshutt/MathMentor/issues/1).)
 
 You can also open the **[Releases page](https://github.com/jaydenshutt/MathMentor/releases/latest)** for release notes and future versions.
 
