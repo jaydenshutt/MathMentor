@@ -7,6 +7,7 @@
         <conv:BoolToVisibilityConverter x:Key="BoolVis"/>
         <conv:BoolToVisibilityConverter x:Key="BoolVisInv" Invert="True"/>
         <conv:InvertBoolConverter x:Key="NotBool"/>
+        <conv:EqualityMultiConverter x:Key="Equality"/>
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="28,24">
         <StackPanel MaxWidth="720" HorizontalAlignment="Center">
@@ -37,7 +38,15 @@
                                     <Button.Style>
                                         <Style TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding DataContext.SelectedChoice, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="{Binding}">
+                                                <!-- DataTrigger.Value cannot use Binding; compare SelectedChoice to this item. -->
+                                                <DataTrigger Value="True">
+                                                    <DataTrigger.Binding>
+                                                        <MultiBinding Converter="{StaticResource Equality}">
+                                                            <Binding Path="DataContext.SelectedChoice"
+                                                                     RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+                                                            <Binding Path="."/>
+                                                        </MultiBinding>
+                                                    </DataTrigger.Binding>
                                                     <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
                                                     <Setter Property="BorderThickness" Value="2"/>
                                                 </DataTrigger>

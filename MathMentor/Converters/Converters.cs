@@ -83,3 +83,20 @@ public sealed class StarsConverter : IValueConverter
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) =>
         throw new NotSupportedException();
 }
+
+/// <summary>
+/// Returns true when the first two multi-binding values are equal.
+/// Used by quiz choice buttons (DataTrigger.Value cannot be a Binding).
+/// </summary>
+public sealed class EqualityMultiConverter : IMultiValueConverter
+{
+    public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (values is null || values.Length < 2)
+            return false;
+        return Equals(values[0], values[1]);
+    }
+
+    public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) =>
+        throw new NotSupportedException();
+}
