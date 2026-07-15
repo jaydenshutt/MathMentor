@@ -8,7 +8,13 @@
 
 ## Download (Windows)
 
-Go to **[Releases](https://github.com/jaydenshutt/MathMentor/releases/latest)** and download **`MathMentor.exe`**.
+### Direct download
+
+**[Download MathMentor.exe](https://github.com/jaydenshutt/MathMentor/releases/download/v1.0.0/MathMentor.exe)**
+
+(That link is the current v1.0.0 build, about 63 MB.)
+
+You can also open the **[Releases page](https://github.com/jaydenshutt/MathMentor/releases/latest)** for release notes and future versions.
 
 | Requirement | Detail |
 |-------------|--------|
