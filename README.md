@@ -1,6 +1,6 @@
 # MathMentor
 
-**A free, offline math tutor for Windows** — from absolute basics through single-variable calculus.
+**A free, offline math tutor for Windows**, from absolute basics through single-variable calculus.
 
 No account. No subscription. No ads. Progress stays on your PC. Jump to any topic whenever you want.
 
@@ -20,7 +20,7 @@ No account. No subscription. No ads. Progress stays on your PC. Jump to any topi
 | **OS** | Windows 10 or 11, **64-bit** |
 | **.NET install** | **Not required** (self-contained) |
 | **Internet** | Not needed after download |
-| **Installer** | None — run the single `.exe` |
+| **Installer** | None. Run the single `.exe`. |
 
 ### Start in under a minute
 
@@ -53,9 +53,9 @@ Use it on a shared family PC, offline on a laptop, or anywhere you do not want a
 ## Who it is for
 
 - **Students** catching up on foundations, or preparing for algebra, precalc, or calculus  
-- **Adults** relearning math for school, work, or confidence — without a classroom  
+- **Adults** relearning math for school, work, or confidence, without a classroom  
 - **Parents** who want a calm, structured tool to put in front of a learner  
-- Anyone who wants a clear path from “what is place value?” to “what is a derivative?” without a subscription  
+- Anyone who wants a clear path from "what is place value?" to "what is a derivative?" without a subscription  
 
 It does **not** replace a great teacher. It **does** give a patient, always-available practice path.
 
@@ -67,29 +67,29 @@ It does **not** replace a great teacher. It **does** give a patient, always-avai
 
 - **About 82 focused lessons**
 - **18 progressive categories** (arithmetic → calculus)
-- **No forced gates** — open any lesson anytime for learning or review
-- **Local progress** — best quiz scores, attempts, and a needs-review queue
+- **No forced gates**: open any lesson anytime for learning or review
+- **Local progress**: best quiz scores, attempts, and a needs-review queue
 
 ### Categories
 
-1. **Arithmetic Foundations** — place value, the four operations, order of operations  
-2. **Number Foundations** — integers, absolute value, factors/GCF/LCM, rational vs irrational  
-3. **Fractions, Decimals & Percentages** — operations, conversions, real-world percent  
-4. **Pre-Algebra** — variables, equations, inequalities, ratios, exponents  
-5. **Algebra I** — linear equations, slope, systems, polynomials, factoring, division, applications  
-6. **Algebra II Essentials** — absolute value, radicals, complex numbers, rational equations, completing the square  
-7. **Quadratics** — solving, discriminant, graphing/vertex form, applications  
-8. **Geometry** — angles, triangles, Pythagorean theorem, polygons, circles, measurement  
-9. **Coordinate & Similarity Geometry** — distance/midpoint, similarity and scale  
-10. **Functions & Advanced Algebra** — definition, transformations, exponential growth/decay, logarithms  
-11. **Precalculus Extensions** — composition, inverses, sequences, rational functions  
-12. **Trigonometry** — unit circle, graphs, identities, equations, law of sines/cosines, applications  
-13. **Advanced Trigonometry** — inverse trig, vectors  
-14. **Statistics & Probability** — displays, center/spread, probability, conditional probability  
-15. **Applied Math** — personal finance, unit conversion and rates  
-16. **Calculus** — limits, derivatives, rules, applications, integrals, FTC, techniques  
-17. **Calculus Extensions** — implicit differentiation, related rates, partial fractions, intro differential equations  
-18. **Cumulative Reviews** — mixed practice across major bands  
+1. **Arithmetic Foundations**: place value, the four operations, order of operations  
+2. **Number Foundations**: integers, absolute value, factors/GCF/LCM, rational vs irrational  
+3. **Fractions, Decimals & Percentages**: operations, conversions, real-world percent  
+4. **Pre-Algebra**: variables, equations, inequalities, ratios, exponents  
+5. **Algebra I**: linear equations, slope, systems, polynomials, factoring, division, applications  
+6. **Algebra II Essentials**: absolute value, radicals, complex numbers, rational equations, completing the square  
+7. **Quadratics**: solving, discriminant, graphing/vertex form, applications  
+8. **Geometry**: angles, triangles, Pythagorean theorem, polygons, circles, measurement  
+9. **Coordinate & Similarity Geometry**: distance/midpoint, similarity and scale  
+10. **Functions & Advanced Algebra**: definition, transformations, exponential growth/decay, logarithms  
+11. **Precalculus Extensions**: composition, inverses, sequences, rational functions  
+12. **Trigonometry**: unit circle, graphs, identities, equations, law of sines/cosines, applications  
+13. **Advanced Trigonometry**: inverse trig, vectors  
+14. **Statistics & Probability**: displays, center/spread, probability, conditional probability  
+15. **Applied Math**: personal finance, unit conversion and rates  
+16. **Calculus**: limits, derivatives, rules, applications, integrals, FTC, techniques  
+17. **Calculus Extensions**: implicit differentiation, related rates, partial fractions, intro differential equations  
+18. **Cumulative Reviews**: mixed practice across major bands  
 
 ### Inside a typical lesson
 
@@ -131,7 +131,7 @@ If this might help a student, parent, or adult learner you know, feel free to se
 
 ## Optional gratitude
 
-MathMentor is free. If it has been helpful, a small gift via PayPal is a thoughtful thank-you — never required. Details are on the in-app **About** page (including a QR code).
+MathMentor is free. If it has been helpful, a small gift via PayPal is a thoughtful thank-you. It is never required. Details are on the in-app **About** page (including a QR code).
 
 ---
 
