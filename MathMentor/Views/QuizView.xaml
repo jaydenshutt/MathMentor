@@ -1,0 +1,99 @@
+<UserControl x:Class="MathMentor.Views.QuizView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctrl="clr-namespace:MathMentor.Controls"
+             xmlns:conv="clr-namespace:MathMentor.Converters">
+    <UserControl.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolVis"/>
+        <conv:BoolToVisibilityConverter x:Key="BoolVisInv" Invert="True"/>
+        <conv:InvertBoolConverter x:Key="NotBool"/>
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="28,24">
+        <StackPanel MaxWidth="720" HorizontalAlignment="Center">
+            <DockPanel Margin="0,0,0,8">
+                <Button Content="Exit to lesson" Style="{StaticResource SecondaryButton}" DockPanel.Dock="Right"
+                        Command="{Binding ExitToLessonCommand}" Padding="12,8"/>
+                <TextBlock Text="{Binding LessonTitle}" FontSize="13" Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center"/>
+            </DockPanel>
+            <TextBlock Text="Practice" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="{Binding ProgressText}" Style="{StaticResource PageSubtitle}"/>
+
+            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,16">
+                <StackPanel>
+                    <TextBlock Text="{Binding Prompt}" FontSize="17" FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextPrimaryBrush}" TextWrapping="Wrap"/>
+                    <ctrl:FormulaBlock Formula="{Binding PromptLatex}"
+                                       Visibility="{Binding HasPromptLatex, Converter={StaticResource BoolVis}}"/>
+
+                    <!-- Multiple choice -->
+                    <ItemsControl ItemsSource="{Binding Choices}" Margin="0,16,0,0"
+                                  Visibility="{Binding IsMultipleChoice, Converter={StaticResource BoolVis}}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button Margin="0,0,0,8" HorizontalContentAlignment="Left"
+                                        Command="{Binding DataContext.SelectChoiceCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"
+                                        IsEnabled="{Binding DataContext.IsAnswered, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource NotBool}}">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource SecondaryButton}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DataContext.SelectedChoice, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="{Binding}">
+                                                    <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}"/>
+                                                    <Setter Property="BorderThickness" Value="2"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Numeric -->
+                    <StackPanel Visibility="{Binding IsNumeric, Converter={StaticResource BoolVis}}" Margin="0,16,0,0">
+                        <TextBlock Text="Your answer" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0,0,6"/>
+                        <TextBox Style="{StaticResource ModernTextBox}"
+                                 Text="{Binding NumericAnswer, UpdateSourceTrigger=PropertyChanged}"
+                                 IsEnabled="{Binding IsAnswered, Converter={StaticResource NotBool}}"
+                                 FontSize="18"/>
+                        <TextBlock Text="Tip: fractions like 2/3 and decimals like 0.5 are accepted when appropriate."
+                                   Foreground="{DynamicResource TextSecondaryBrush}" FontSize="11" Margin="0,6,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,18,0,0">
+                        <Button Content="Submit answer" Style="{StaticResource PrimaryButton}" Margin="0,0,10,0"
+                                Command="{Binding SubmitCommand}"
+                                Visibility="{Binding IsAnswered, Converter={StaticResource BoolVisInv}}"/>
+                        <Button Content="Show hint" Style="{StaticResource SecondaryButton}" Margin="0,0,10,0"
+                                Command="{Binding ShowNextHintCommand}"
+                                Visibility="{Binding IsAnswered, Converter={StaticResource BoolVisInv}}"/>
+                        <Button Content="Next" Style="{StaticResource PrimaryButton}"
+                                Command="{Binding NextCommand}"
+                                Visibility="{Binding IsAnswered, Converter={StaticResource BoolVis}}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,12"
+                    Visibility="{Binding ShowHint, Converter={StaticResource BoolVis}}"
+                    BorderBrush="{DynamicResource Accent2Brush}">
+                <StackPanel>
+                    <TextBlock Text="Hints" FontWeight="Bold" Foreground="{DynamicResource Accent2Brush}"/>
+                    <TextBlock Text="{Binding HintText}" Style="{StaticResource BodyText}" Margin="0,8,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}"
+                    Visibility="{Binding IsAnswered, Converter={StaticResource BoolVis}}">
+                <StackPanel>
+                    <TextBlock Text="{Binding FeedbackTitle}" FontSize="18" FontWeight="Bold"
+                               Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <TextBlock Text="{Binding FeedbackBody}" Style="{StaticResource BodyText}" Margin="0,8,0,0"/>
+                    <ctrl:FormulaBlock Formula="{Binding ExplanationLatex}"
+                                       Visibility="{Binding HasExplanationLatex, Converter={StaticResource BoolVis}}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

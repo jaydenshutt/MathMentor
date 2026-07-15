@@ -1,0 +1,215 @@
+<UserControl x:Class="MathMentor.Views.LessonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ctrl="clr-namespace:MathMentor.Controls"
+             xmlns:oxy="http://oxyplot.org/wpf"
+             xmlns:conv="clr-namespace:MathMentor.Converters">
+    <UserControl.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolVis"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,0,0,1" Padding="28,16">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="← Previous" Style="{StaticResource SecondaryButton}" Margin="0,0,8,0"
+                            Command="{Binding GoPreviousCommand}"
+                            IsEnabled="{Binding HasPrevious}"/>
+                    <Button Content="Next →" Style="{StaticResource SecondaryButton}" Margin="0,0,8,0"
+                            Command="{Binding GoNextCommand}"
+                            IsEnabled="{Binding HasNext}"/>
+                    <Button Content="Start practice" Style="{StaticResource PrimaryButton}"
+                            Command="{Binding StartPracticeCommand}"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="{Binding Breadcrumb}" Foreground="{DynamicResource TextSecondaryBrush}" FontSize="12" Margin="0,0,0,4"/>
+                    <TextBlock Text="{Binding Title}" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <TextBlock Text="{Binding Subtitle}" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <Border Background="{DynamicResource SurfaceAltBrush}" CornerRadius="6" Padding="8,4" Margin="0,0,8,0">
+                            <TextBlock Text="{Binding Minutes}" Foreground="{DynamicResource AccentBrush}" FontSize="12" FontWeight="SemiBold"/>
+                        </Border>
+                        <Border Background="{DynamicResource SurfaceAltBrush}" CornerRadius="6" Padding="8,4">
+                            <TextBlock Text="{Binding ProgressSummary}" Foreground="{DynamicResource TextSecondaryBrush}" FontSize="12"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="28,20">
+            <StackPanel MaxWidth="900" HorizontalAlignment="Left">
+
+                <TextBlock Text="Explanation" Style="{StaticResource SectionHeading}" FontSize="20"/>
+                <ItemsControl ItemsSource="{Binding Sections}" Margin="0,0,0,20">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,12">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Heading}" FontWeight="SemiBold" FontSize="16"
+                                               Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,0,0,8"/>
+                                    <TextBlock Text="{Binding Body}" Style="{StaticResource BodyText}"/>
+                                    <Border Margin="0,12,0,0" Padding="12,10" CornerRadius="8"
+                                            Background="{DynamicResource SurfaceAltBrush}"
+                                            BorderBrush="{DynamicResource Accent2Brush}" BorderThickness="1"
+                                            Visibility="{Binding HasPriorLink, Converter={StaticResource BoolVis}}">
+                                        <StackPanel>
+                                            <TextBlock Text="Build on what you know"
+                                                       FontWeight="SemiBold" FontSize="12"
+                                                       Foreground="{DynamicResource Accent2Brush}" Margin="0,0,0,4"/>
+                                            <TextBlock Text="{Binding PriorLink}" Style="{StaticResource BodyText}"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Margin="0,12,0,0" Padding="12,10" CornerRadius="8"
+                                            Background="{DynamicResource SurfaceAltBrush}"
+                                            BorderBrush="{DynamicResource AccentBrush}" BorderThickness="1"
+                                            Visibility="{Binding HasSimpleRestate, Converter={StaticResource BoolVis}}">
+                                        <StackPanel>
+                                            <TextBlock Text="If this feels confusing…"
+                                                       FontWeight="SemiBold" FontSize="12"
+                                                       Foreground="{DynamicResource AccentBrush}" Margin="0,0,0,4"/>
+                                            <TextBlock Text="{Binding SimpleRestate}" Style="{StaticResource BodyText}"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <ctrl:PlaceValueChart ExampleNumber="{Binding PlaceValueExample}"
+                                                          Visibility="{Binding HasPlaceValueChart, Converter={StaticResource BoolVis}}"/>
+                                    <ctrl:FormulaBlock Formula="{Binding Latex}"
+                                                       Visibility="{Binding HasLatex, Converter={StaticResource BoolVis}}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Text="Key formulas" Style="{StaticResource SectionHeading}" FontSize="20"/>
+                <ItemsControl ItemsSource="{Binding Formulas}" Margin="0,0,0,20">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,10"
+                                    BorderBrush="{DynamicResource AccentBrush}" BorderThickness="1">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="{DynamicResource AccentBrush}"/>
+                                    <ctrl:FormulaBlock Formula="{Binding Latex}"/>
+                                    <TextBlock Text="{Binding Description}" Style="{StaticResource BodyText}" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Border Visibility="{Binding HasPlot, Converter={StaticResource BoolVis}}"
+                        Style="{StaticResource CardBorder}" Margin="0,0,0,20" Height="320" Padding="8">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top" Text="{Binding VisualCaption}" Style="{StaticResource BodyText}" Margin="8,4,8,8"/>
+                        <oxy:PlotView Model="{Binding Plot}" Background="Transparent"/>
+                    </DockPanel>
+                </Border>
+
+                <TextBlock Text="Worked examples" Style="{StaticResource SectionHeading}" FontSize="20"/>
+                <ItemsControl ItemsSource="{Binding Examples}" Margin="0,0,0,20">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,12">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="15"
+                                               Foreground="{DynamicResource Accent2Brush}" Margin="0,0,0,6"/>
+                                    <TextBlock Text="{Binding Problem}" Style="{StaticResource BodyText}" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource TextPrimaryBrush}"/>
+                                    <ctrl:FormulaBlock Formula="{Binding ProblemLatex}"
+                                                       Visibility="{Binding HasProblemLatex, Converter={StaticResource BoolVis}}"/>
+                                    <TextBlock Text="Steps" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryBrush}" Margin="0,10,0,6"/>
+                                    <ItemsControl ItemsSource="{Binding Steps}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <DockPanel Margin="0,0,0,8">
+                                                    <Ellipse Width="6" Height="6" Fill="{DynamicResource AccentBrush}"
+                                                             VerticalAlignment="Top" Margin="0,8,10,0"/>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Text}" Style="{StaticResource BodyText}"/>
+                                                        <ctrl:FormulaBlock Formula="{Binding Latex}"
+                                                                           ShowChrome="False"
+                                                                           Visibility="{Binding HasLatex, Converter={StaticResource BoolVis}}"/>
+                                                    </StackPanel>
+                                                </DockPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <TextBlock Text="Result" FontWeight="SemiBold" Foreground="{DynamicResource AccentBrush}"
+                                               Margin="0,8,0,0"
+                                               Visibility="{Binding HasSolutionLatex, Converter={StaticResource BoolVis}}"/>
+                                    <ctrl:FormulaBlock Formula="{Binding SolutionLatex}"
+                                                       Visibility="{Binding HasSolutionLatex, Converter={StaticResource BoolVis}}"/>
+                                    <TextBlock Text="{Binding Closing}" Style="{StaticResource BodyText}" Margin="0,8,0,0"
+                                               FontStyle="Italic"/>
+                                    <ctrl:FormulaBlock Formula="{Binding ClosingLatex}"
+                                                       ShowChrome="False"
+                                                       Visibility="{Binding HasClosingLatex, Converter={StaticResource BoolVis}}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Text="Common mistakes" Style="{StaticResource SectionHeading}" FontSize="20"/>
+                <Border Style="{StaticResource CardBorder}" Margin="0,0,0,20"
+                        BorderBrush="{DynamicResource WarningBrush}">
+                    <ItemsControl ItemsSource="{Binding Mistakes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel Margin="0,0,0,8">
+                                    <TextBlock Text="⚠" Foreground="{DynamicResource WarningBrush}" Margin="0,0,8,0"/>
+                                    <TextBlock Text="{Binding}" Style="{StaticResource BodyText}"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <TextBlock Text="Key takeaways" Style="{StaticResource SectionHeading}" FontSize="20"
+                           Visibility="{Binding HasKeyTakeaways, Converter={StaticResource BoolVis}}"/>
+                <Border Style="{StaticResource CardBorder}" Margin="0,0,0,20"
+                        BorderBrush="{DynamicResource AccentBrush}" BorderThickness="1"
+                        Visibility="{Binding HasKeyTakeaways, Converter={StaticResource BoolVis}}">
+                    <ItemsControl ItemsSource="{Binding KeyTakeaways}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel Margin="0,0,0,8">
+                                    <TextBlock Text="•" FontWeight="Bold" Foreground="{DynamicResource AccentBrush}"
+                                               Margin="0,0,10,0" FontSize="16"/>
+                                    <TextBlock Text="{Binding}" Style="{StaticResource BodyText}"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <Border Style="{StaticResource CardBorder}" Background="{DynamicResource SurfaceAltBrush}">
+                    <DockPanel>
+                        <Button DockPanel.Dock="Right" Content="Start practice quiz" Style="{StaticResource PrimaryButton}"
+                                Command="{Binding StartPracticeCommand}"/>
+                        <StackPanel>
+                            <TextBlock Text="Ready to practice?" FontWeight="Bold" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                            <TextBlock Text="6-10 questions with hints, instant feedback, and full solutions. Retake anytime to improve your best score."
+                                       Style="{StaticResource BodyText}" Margin="0,4,16,0"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="0,1,0,0" Padding="28,12">
+            <DockPanel>
+                <Button Content="← Curriculum" Style="{StaticResource SecondaryButton}" Command="{Binding BackToCurriculumCommand}"/>
+                <Button Content="Practice this lesson" Style="{StaticResource PrimaryButton}" HorizontalAlignment="Right"
+                        Command="{Binding StartPracticeCommand}"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

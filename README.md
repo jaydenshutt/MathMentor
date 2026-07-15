@@ -107,4 +107,4 @@ LinkedIn: [linkedin.com/in/jaydenshutt](https://www.linkedin.com/in/jaydenshutt/
 
 ## License / use
 
-You may download and use MathMentor.exe freely for personal learning. Redistribution of the binary is fine when the creator credit is preserved. Source code is not published in this repository.
+You may download and use MathMentor.exe freely for personal learning. Redistribution of the binary is fine when the creator credit is preserved. Application source is in this repository; the ready-to-run Windows EXE is on the Releases page (not stored in git history).

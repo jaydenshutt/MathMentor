@@ -1,0 +1,34 @@
+<UserControl x:Class="MathMentor.Views.WelcomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Background="{DynamicResource BgBrush}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="640" Margin="32">
+            <Border Background="{DynamicResource SurfaceBrush}" CornerRadius="16" Padding="36"
+                    BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="MathMentor" FontSize="36" FontWeight="Bold"
+                               Foreground="{DynamicResource AccentBrush}" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Your progressive path from number sense to calculus"
+                               Foreground="{DynamicResource TextSecondaryBrush}"
+                               HorizontalAlignment="Center" Margin="0,8,0,24" TextAlignment="Center"/>
+
+                    <TextBlock Style="{StaticResource BodyText}" Margin="0,0,0,10"
+                               Text="• 50 focused lessons across arithmetic, algebra, geometry, trigonometry, and calculus"/>
+                    <TextBlock Style="{StaticResource BodyText}" Margin="0,0,0,10"
+                               Text="• Beautiful formula rendering, graphs, worked examples, and guided practice"/>
+                    <TextBlock Style="{StaticResource BodyText}" Margin="0,0,0,10"
+                               Text="• Learn freely, jump to any topic, review anytime, retake quizzes to improve"/>
+                    <TextBlock Style="{StaticResource BodyText}" Margin="0,0,0,24"
+                               Text="• Progress saved on this device with mastery tracking and smart review suggestions"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Start learning" Style="{StaticResource PrimaryButton}" Margin="0,0,12,0"
+                                Command="{Binding StartLearningCommand}" Padding="20,12"/>
+                        <Button Content="Browse curriculum" Style="{StaticResource SecondaryButton}"
+                                Command="{Binding BrowseCurriculumCommand}" Padding="20,12"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

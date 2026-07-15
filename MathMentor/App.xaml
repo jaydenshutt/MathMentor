@@ -1,0 +1,48 @@
+<Application x:Class="MathMentor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:MathMentor.ViewModels"
+             xmlns:views="clr-namespace:MathMentor.Views">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/ThemeDark.xaml"/>
+                <ResourceDictionary Source="Themes/Controls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <system:Double xmlns:system="clr-namespace:System;assembly=System.Runtime" x:Key="AppFontScale">1.0</system:Double>
+            <system:Double xmlns:system="clr-namespace:System;assembly=System.Runtime" x:Key="AppFontSize">14</system:Double>
+            <system:Double xmlns:system="clr-namespace:System;assembly=System.Runtime" x:Key="AppFontSizeTitle">22</system:Double>
+            <system:Double xmlns:system="clr-namespace:System;assembly=System.Runtime" x:Key="AppFontSizeHeader">18</system:Double>
+            <system:Double xmlns:system="clr-namespace:System;assembly=System.Runtime" x:Key="AppFontSizeSmall">12</system:Double>
+
+            <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+                <views:DashboardView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:CurriculumViewModel}">
+                <views:CurriculumView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:LessonViewModel}">
+                <views:LessonView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:QuizViewModel}">
+                <views:QuizView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:QuizResultViewModel}">
+                <views:QuizResultView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ReviewQueueViewModel}">
+                <views:ReviewQueueView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                <views:SettingsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:WelcomeViewModel}">
+                <views:WelcomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AboutViewModel}">
+                <views:AboutView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,57 @@
+<UserControl x:Class="MathMentor.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="28,24">
+        <StackPanel MaxWidth="640">
+            <TextBlock Text="Settings" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Theme, accessibility, and progress data." Style="{StaticResource PageSubtitle}"/>
+
+            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Appearance" FontWeight="Bold" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <CheckBox Content="Dark theme" IsChecked="{Binding IsDarkTheme}" Margin="0,14,0,0"
+                              Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <TextBlock Text="{Binding FontScaleLabel}" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,16,0,6"/>
+                    <Slider Minimum="0.85" Maximum="1.4" TickFrequency="0.05" IsSnapToTickEnabled="True"
+                            Value="{Binding FontScale}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Progress data" FontWeight="Bold" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <TextBlock Text="Progress is stored locally under AppData\Local\MathMentor."
+                               Style="{StaticResource BodyText}" Margin="0,8,0,12"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Export progress" Style="{StaticResource SecondaryButton}" Margin="0,0,8,0"
+                                Command="{Binding ExportProgressCommand}"/>
+                        <Button Content="Import progress" Style="{StaticResource SecondaryButton}" Margin="0,0,8,0"
+                                Command="{Binding ImportProgressCommand}"/>
+                        <Button Content="Reset all progress" Style="{StaticResource SecondaryButton}"
+                                Command="{Binding ResetProgressCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="Welcome tour" FontWeight="Bold" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <Button Content="Show welcome screen again" Style="{StaticResource SecondaryButton}"
+                            HorizontalAlignment="Left" Margin="0,12,0,0" Command="{Binding ShowWelcomeCommand}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}" Margin="0,0,0,14">
+                <StackPanel>
+                    <TextBlock Text="About &amp; support" FontWeight="Bold" FontSize="16" Foreground="{DynamicResource TextPrimaryBrush}"/>
+                    <TextBlock Style="{StaticResource BodyText}" Margin="0,8,0,12"
+                               Text="Created by Jayden Shutt. View credits, LinkedIn, and optional PayPal support."/>
+                    <Button Content="Open About page" Style="{StaticResource SecondaryButton}"
+                            HorizontalAlignment="Left" Command="{Binding OpenAboutCommand}"/>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="{Binding StatusMessage}" Foreground="{DynamicResource AccentBrush}" Margin="0,8,0,0"/>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

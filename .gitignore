@@ -1,5 +1,33 @@
-﻿# This repository is for public downloads only (no application source).
-# Binaries ship via GitHub Releases, not git commits.
-*
-!README.md
-!.gitignore
+# Build outputs
+bin/
+obj/
+publish/
+*.exe
+*.dll
+*.pdb
+*.zip
+
+# IDE / user-specific
+*.user
+*.suo
+.vs/
+*.DotSettings.user
+*.swp
+*~
+Thumbs.db
+Desktop.ini
+
+# Local scratch (not product source)
+_latextest2/
+
+# Local release-packaging folders (do not commit nested clones or drafts)
+github-release/
+github-release-repo/
+
+# Secrets / env (none expected; keep ignored by policy)
+.env
+.env.*
+*.pfx
+*.pem
+*.key
+appsettings.*.local.json
